@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img id="img" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyNDAyMDFfMjY2%2FMDAxNzA2NzU0NjMyMDk2.lqrZuq2sOApH_-EVCz-vIIgcoh74uyM4gyBZD-xzpTkg.0qxu67LThVi1oEwjpHyETCFCED0uo9-FxSG0DzKxotkg.JPEG.nanvely1001%2FIMG_6732.JPG&type=a340">
+    <br>
+    <button onclick="changeImg()"> 이미지 변경 </button>
+
+
+    <script>
+        //버튼을 눌었을 때 이미지 태그의 src 변경
+        const changeImg=()=>{
+            
+            document.getElementById("img").src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTA4MDFfMjI2%2FMDAxNjI3ODI5MDA3MTYy.PWggNrdrSWN0qXiDSF42AGJyZebylWfZysEWx8VP510g.aBK-TzmRmMYss3eVNsShel271kS0O2CVaJ8YY5B_wtEg.JPEG.chamji33%2F%25B4%25D9%25BF%25EE%25B7%25CE%25B5%25E5.jpg&type=a340";
+        
+        }
+
+        /*1. JS에서 명령시 반드시 요소를 먼저 수집한다
+          2. 수집하고자 하는 걸 명확하게 작성해라
+                -글자 수집: innerText
+                -인풋벨류:value
+                -이미지src:src
+          3.동작하는 원리 기억*/
+    </script>
+</body>
+</html>

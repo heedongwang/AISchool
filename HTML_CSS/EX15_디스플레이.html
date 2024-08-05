@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 가시속성(display)
+        (1)block: 한줄 전체를 차지하는 태그(h,p)
+        (2)inline: 콘텐츠의 크기 만큼 차지(span)=> 다시 보이게함
+        (3)none:태그가 보이지 않게  
+        사각형 공간구성=> 공간 사용효율 */
+
+
+        span{display: none; }
+        a:hover+span{display: inline;}
+
+    </style>
+</head>
+<body>
+    <a href="https://www.naver.com/">네이버<!--요소element--></a>
+    <span>www.naver.com</span><br>
+    <a href="https://www.daum.net/">다음</a>
+    <span>www.daum.com</span><br>
+</body>
+</html>
+

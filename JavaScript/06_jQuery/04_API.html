@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <button id="btn">영화 정보 요청하기!</button>
+    <p id="text"></p>
+
+    <script>
+        //버튼 클릭시 영화 정보 출력
+        /*통신을 하기위한 구성
+        1.요청/응답할 주소
+        2.통신 방법 작성(get,post)
+        3.넘길 데이터 작성
+        4.성공 실패 할때 처리할 공간*/
+        $("#btn").on("click",()=>{
+            
+            $.ajax({
+               /*1.데이터 요청할 서버 주소(필수)
+              2. 전송하는 방법(필수X,기본값:get)
+              3.데이터를 보내는 공간(필수X)
+              
+              JSON 데이터를 활용할 때는 두가지만 기억하자!
+              1. 꺼내려는 데이터가 개체 형태면 .key을 명시해라.
+              2.꺼내려는 데이터가 배열 형태면 [인덱스]를 명시해라*/
+            url:"https://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=3926c50384874e10528ef74428dbda89&targetDt=20240625",
+            type:"GET",
+            //data:{id: "id",pw:"pw"}
+            success: (res)=>{
+                
+                for(let i=0;i<10;i++){
+                    
+                    //$("#text").html('<p res="res.boxOfficeResult.dailyBoxOfficeList[i].movieNm"></p>')
+
+                    console.log(res.boxOfficeResult.dailyBoxOfficeList[i].movieNm);
+               // }
+
+                //alert("통신성공");  boxOfficeResult
+                //성공함수 안에 반드시 매개함수 작성->응답받은 데이터 담아야함
+                
+            },
+            error : ()=>{
+                alert("통신실패");
+
+            }
+
+
+
+        })
+    })
+    </script>
+</body>
+</html>

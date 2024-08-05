@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*선택자  태그선택자: 태그이름사용
+        1)그룹선택자: 여러개의 태그에 동일한 스타일 적용시 사용,h1,h2,h3{ color:blue;}
+        2)전체선택자(*): html파일 안에 있는 모든 태그에 적용 *{color:blue;}
+        3)클래스선택자(.): 특정 태그에 고유한 이름을 지정해 디자인
+        4)아이디선택자(#)
+        => 공통점: 이름없는 태그들과 구분
+           차이점: 클래스는 중복 가능, 아이디는 중복 불가능하고 고유값을 가짐 
+           주의점: 아이디 있는 태그에도 클래스 부여 가능(단, 우선순위 있음 아이디>클래스)
+           점수: 클래스 10 , 아이디 100*/
+        
+        h1{color:blue;}
+        h2{color:blue;}
+        h3{color:blue;}
+       
+        h1,h2,h3{ color:blue;}
+            
+        *{color:blue;}
+        
+        /*h1 {color:green;}*/
+        /*태그명 기호(.) 클래스 이름=> 태그이름 없으면 모든 태그에서 적용
+        기호: 클래스(.), 아이디(#)*/
+        .men{color:green;}
+        
+        #yh{color:violet;}
+
+    </style>
+
+
+</head>
+
+<body>
+    <h1 id="yh">최영화</h1>
+    <h1 class="men">박병관</h1>
+    <h1 class="men">황해도</h1>
+
+    <h2 class="men">JAVA</h2>
+    <h2 class="men">DB</h2>
+    <h2>HTML/CSS</h2>
+
+    <h3>웹2(B)</h3>
+</body>
+</html>

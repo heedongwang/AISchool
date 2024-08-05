@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        /*계층선택자: 태그에 아이디와 클래스와 같읂 구분자가 없는 경우 포함관계를 가지고 구변
+        =>부모,자식 관게ㅖ=>특정태그가 포함되는 경우 출발지(>)도착지
+        =>자손 선택자( 공백) 내 밑에 잇는 모든 태그 포함
+        
+        형제관계: 서로 포함하지 않지만 부모가 같은 태그(li)
+            ->인접형제(+):나를 기준으로 바로 다음에 있는 형제
+              후행형제(~):나를 기준으로 뒤에잇는 모든 형제
+              형제 선택자: nth-child()ㄴ
+
+        */
+        
+        li{color:red;}
+
+        ul>li{color:blue;} /*자식관계*/
+        /* span{color:green;}*/
+
+        ul>li>span{ color:green;}
+        ol>li>span{color:yellow;  }
+        /*ol span{color:yellow;  }*/
+
+        h1+p{color:blueviolet;}
+        h1+p+p{color:orange;}
+
+        ul>li:nth-child(1){
+            color:aqua;
+        }
+       
+    </style>
+</head>
+<body>
+    <h1>여긴 h1</h1>
+
+    <p>여긴 p1</p>
+    <p>여긴 p2</p>
+
+    <ul>
+        <li>li태그1</li>
+        <li>li태그2</li>
+        <li>
+            <span>sapn태그입니다.</span>
+        </li>
+    </ul>
+
+    <ol>
+        <li>li테그3</li>
+        <li>li테그4</li>
+        <li>
+            <span>sapn태그입니다.</span>
+        </li>
+    </ol>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="h1_id " class="h1_class">DOM 요소</h1>
+
+    <script>
+        /*DOM객체:html에서 생성된 모든 태그,속성,텍스트를 쪼개서 각 관리
+        <h1 id="h1_id " class="h1_class">DOM 요소</h1>
+        1.요소 노드: h1태그
+        2.속성 노드: id, class(속성) 저장, h1_id,h1_Class(속성 값)을 저장
+        3.텍스트노트: 'DOM요소' 글자가 저장
+        4.노드를 관리하는 최상위 노드: document
+        =>쪼개는 이유: 원하는 태그에 스타일, 이벤트 부여하기 위해
+        */
+
+        /*id(Id)가 h1_id인 요소(Element) 가져와서(get), 콘솔창에 출력
+        1.HTML에 원하는 요소를 접근할때는 getElement라는 함수를 사용-> 데이터 최상위 주체: document*/
+        console.log(document.getElementById("h1_id"));
+
+        /*2.문서에서 클래스가 h1_Class인 요소들을 가져와 출력
+            클래스는 복수개를 가지고 있을수 있기 때문에 elements(복수)개 요청한다=> 배열처럼 데이터 넘어옴
+            유사배열(HTMLCollection)=> 배열처럼 사용가능(인덱스 번호, length), 배열함수 사용 불가능
+            배열함수 사용하려면 HTMLCollection을 배열로 변환
+            */
+
+        console.log(document.getElementsByClassName("h1_class")[0]);
+
+       let h1= document.getElementsByClassName("h1_class");
+       let h1Arr=Array.from(h1);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #parentDiv{
+            width: 500px;
+            height: 500px;
+            background-color: black;
+            /* position: relative; */
+            
+        }
+
+        #childDiv{
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+
+            position: absolute;
+            top:30px;
+        }
+
+        /*자식에 absolute속성 사용시 부모에게서 벗어남
+          부모자식의 포함관계를 어그러뜨림=> 속성 사용시 부모에게 relative사용 */
+    </style>
+</head>
+<body>
+    <div id="parentDiv">
+        <div id="childDiv"></div>
+    </div>
+</body>
+</html>

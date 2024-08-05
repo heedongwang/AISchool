@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /*position:태그의 위치 변경
+        1)static: 기본값, 작성한 순서대로 태그 생성
+        2)relative: 특정 태그에 새로운 층 부여해 이동=> 원래 위치를 기준으로 움직임✨
+        3)abolute: 특정 태그에 새로운 층 부여해 이동=> 화면 최상단 0,0를 기준으로 이동    
+        4)fixed:화면의 특정부분에 고정할때 사용한다 =>리모컨,최상위버튼, 설정버튼드 스크롤을 내려도 고정됨       */
+
+        div{
+            width: 150px;
+            height: 150px;
+        }
+        
+        #div1{
+            background-color: red;
+           /* margin-top: 200px; 전체 박스가 내려감*/
+        }
+        #div2{
+            background-color: yellow;
+            position: absolute;
+            top:75px; /*relative: 현재 위치를 기준으로 위에 공간을 75줌 => 아래를 겹쳐 이동*/
+        }
+        #div3{
+            background-color: blue;
+        }
+        #div4{
+            background-color: green;
+            position: fixed;
+            bottom: 0px;
+            right: 0px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="div1"></div>
+    <div id="div2"></div>
+    <div id="div3"></div>
+    <div id="div4"></div>
+    
+</body>
+</html>

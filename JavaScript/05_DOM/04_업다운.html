@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="number">0 </p>
+    <button onclick="addFunc()">+1증가</button>
+    <button onclick="subFunc()">-1증가</button>
+
+    <script>
+        /*1.증가, 감소 실행 함수
+          2.연결
+          3. 증가 로직=> number요소안에 1씩 증가 다시 넣음
+          4. 감소 로직 => number 요소안에 1씩 감소(0<ㅌ)
+          가독성이 좋아야함, 중복 최소화, 재사용성 높임*/
+          let tag=document.getElementById("number");
+          let num=Number(tag.innerHTML);
+
+
+
+        const addFunc=()=>{
+           //num1+=1;
+           //document.getElementById("number").innerText=num;
+           //document.getElementById("number").innerText= Number(document.getElementById("number").innerText)+1;
+           tag.innerHTML= ++num;
+           
+        }
+        const subFunc=()=>{
+            if(num>0){
+                tag.innerHTML= --num;
+                
+                // num1-=1;
+                // document.getElementById("number").innerText=Number(num);
+                //document.getElementById("number").innerText= Number(document.getElementById("number").innerText)-1;
+            }
+        }
+
+        //값이 변동되는 경우 다시 넣어줌
+        //inner 사용하면 가지고온 데이터는 문자형태
+        //가독성 매우 중요해 중복데이터는 변수에 담아 사용
+        //역할이 같은 코드끼리 묶기
+           
+    </script>
+</body>
+</html>

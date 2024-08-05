@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*중요한 데이터 타입= 객체 타입
+        1. 배열: 오직 인데스로만 데이터 조회-> 인덱스 번호 의미 모름
+            =>같은 의미 가진 데이터 저장
+        2.객체: key와 value형태로 제작 -> 키 값으로 데이터 조회
+            =>다른 의미 가진 데이터 저장
+            =>기억할 내용: 객체이름={key:value}로 객체 생성, 조회할때는 객체이름.key
+            => ** 데이터의 형태가 다를때 사용=
+            심화버전: 객체안에 데이터로 배열 or 객체있는 경우 해결방법
+                     사용하는 데이터는 복잡하게 작성됨
+
+
+
+        반드시 기억: 객체는 .key값으로 데이터 접근
+                    배열[인덱스]를 통해 접근    
+        */
+       //배열형태
+        let arr=["정형","광주",20];
+        console.log("배열 값:",arr[1]);
+
+        //객체형태
+        let obj={이름:"정형", 지역:"광주", 나이:20};
+        console.log("객체 값:",obj.이름);
+
+
+        let person={
+            나의이름:{성: "정", 이름:"형"},
+            취미:["운전하기","야구보기"]
+        };
+        console.log(person.나의이름.이름);
+        console.log(person.취미[1]);
+
+    </script>
+</body>
+</html>

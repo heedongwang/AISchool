@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 표,테이블을 생성하기 위한 태그=>table(표의 틀을 만들어줌)
+     행, 열, 데이터, 테두리,제목
+     테이블 필수 구성요소
+     1)행 tr태그(table row) tr*n=> n개행
+     2)열 th태그
+     3)선: border
+      -->
+
+      <table border="1px solid black", align="center">
+        <tr bgcolor="yellow">
+            
+            <th>이름</th>  <!--th:헤드-->
+            <th>성별</th>
+            <th>주소</th>
+        </tr>
+        <tr>
+            <td>박병관</td>
+            <td>남자</td>
+            <td>서울</td>
+        </tr>
+        <!-- td:데이터 -->
+        <tr>
+            <td>최영화</td>
+            <td>여자</td>
+            <td>광주</td>
+        </tr>
+        <tr>
+            <td align="center">모란</td>
+            <td>여자</td>
+            <td>광주</td>
+        </tr>
+
+        
+      </table>
+
+      <br>
+      <!-- 테이블 병합 -->
+
+      <table border="1px solid black", align="center">
+        <tr bgcolor="yellow">
+            
+            <th>이름</th>  <!--th:헤드-->
+            <th colspan="2">성별,주소</th>
+            <th>주소</th>
+            <th>직업</th>
+        </tr>
+        <tr>
+            <td>박병관</td>
+            <td >남자</td>
+            <td>서울</td>
+            <td rowspan="2">선생님</td>
+        </tr>
+        <!-- td:데이터 -->
+        <tr>
+            <td>최영화</td>
+            <td>여자</td>
+            <td>광주</td>
+        </tr>
+        <tr>
+            <td align="center">모란</td>
+            <td>여자</td>
+            <td>광주</td>
+            <td align="center">학생</td>
+        </tr>
+
+        
+      </table>  
+</body>
+</html>

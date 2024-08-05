@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>클릭을 통해서 태그 생성</h1>
+    <button onclick="setH1()">h1태그 생성</button>
+    <button onclick="setA()">a태그 생성</button>
+    <button onclick="setUl()">ul태그 생성</button>
+    <button onclick="printText();">테스트 버튼</button>
+    //인라인 방식
+
+    <p id="text"></p>
+
+    <script>
+        /*실습
+        1. 총 3개의 함수 제작(h1,a,ul)
+        2. 각 버튼의 알맞는 함수를 연결
+        3. 각 로직: 버튼을 누르면 id가 text가 텍스트인 공간에 <h1>태그 생성*/
+        //1. h1태그 클릭시 alert창 실행 
+        const printText= ()=>{
+            alert("함수가 실행됬습니다.");
+        }
+        const setH1=()=>{
+           document.getElementById("text").innerHTML+="<h1>태그생성</h1>";
+            
+
+        }
+        const setA=()=>{
+            document.getElementById("text").innerHTML+=`<a href= #>태그생성</a>`;
+            /* `` :사용시 자유롭게 태그 사용가능*/
+           
+
+            
+
+        }
+        const setUl=()=>{
+            document.getElementById("text").innerHTML+=
+                `<ul>
+                <li>HTML</li>
+                <li>JAVA</li>
+                <li>CSS</li>
+                </ul>`;
+
+        }
+
+        /*1.함수 만든 후 반드시 태그와 연결
+          2. 특정요소에서 내용 변경시 innerHTML 사용
+          3. 태그가 많아서 가독성이 떨어지는 경우에는 ``탬플릿 문법을 활용하자!
+          4. 데이터 누적하고 싶으면 복합대입연산자 (+=) 사용*/
+
+    </script>
+</body>
+</html>

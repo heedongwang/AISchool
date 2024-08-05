@@ -1,0 +1,120 @@
+출력
+(1) HTML 문서 내 => document.write()
+(2) console창 => console.log()
+(3) 알림팝업창 => alert()
+
+입력
+(1) 입력창 => prompt() / String
+(2) 확인/취소 => confirm() / Boolean
+
+변수
+(1) var => 재선언O, 재할당O
+(2) let => 재선언X, 재할당O
+(3) const => 재선언X, 재할당X
+
+자료형
+(1) number : 숫자
+(2) string : 문자
+(3) boolean : 논리
+(4) undefined : 할당X, 존재X
+(5) null : 값X
+
+형변환
+(1) 정수 : parseInt()
+(2) 실수 : parseFloat()
+(3) 숫자 : Number()
+(4) 문자 : String()
+
+연산자 (Java와 다른 부분)
+(1) / : 실제 연산 결과 (몫X)
+(2) ==(값) vs. ===(값+자료형)
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grade card practice</title>
+    <style>
+        table,
+        td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+        // (0) 과목 수, 과목 이름, 과목 점수, 총점, 평균 초기화
+        let subNum = 0; //과목 수
+        let subName = []; // 과목 이름
+        let subScore = []; // 과목 점수
+        let totlaScore = 0; // 총점
+        let averageScore = 0; // 평균
+
+        // (1) 과목 수 입력
+        subNum = Number(prompt('과목 수 입력'));
+
+        // (2) 과목 수만큼 과목 이름 입력
+        for (let i = 1; i <= subNum; i++) {
+            subName.push(prompt('점수를 입력할 과목을 입력하세요.'))
+        }
+
+
+        // (3) 각 과목의 점수 입력
+        // (4) 과목 점수 총합과 평균 도출
+        for (let i = 0; i < subName.length; i++) {
+            let score = Number(prompt(`${subName[i]}의 점수를 입력하세요.`));
+            subScore.push(score);
+
+            totlaScore += score;
+        }
+        averageScore = parseInt(totlaScore / subNum);
+
+        console.log(subName, subScore, totlaScore, averageScore);
+
+        // (5) 형태에 맞춰서 HTML 문서 내 테이블로 출력
+        let table = `<table><tr>`
+        // table += `
+        //         <td>자바</td>
+        //         <td>안드로이드</td>
+        //         `
+        for(let i=0; i<subNum; i++){
+            table += `<td>${subName[i]}</td>`
+        }
+        table += `
+                <td>총합</td>
+                <td>평균</td>
+            </tr>
+            <tr>
+                `
+        // table += `
+        //         <td>87</td>
+        //         <td>81</td>
+        //         `
+        for(let i=0; i<subNum; i++){
+            table += `<td>${subScore[i]}</td>`
+        }
+        table += `
+                <td>${totlaScore}</td>
+                <td>${averageScore}</td>
+            </tr>
+        </table>
+        `;
+        document.write(table);
+    </script>
+</body>
+
+</html>

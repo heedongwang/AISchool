@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="text">
+    <button onclick="clickTochange()">인풋값 h1으로 출력하기</button>
+    <p id= "text-area"></p>
+
+    <script>
+        let data= document.getElementById("text");
+        let area=document.getElementById("text-area");
+
+        const clickTochange=()=>{
+            area.innerHTML=`<h1>${data.value}</h1>`;
+        }
+    </script>
+</body>
+</html>

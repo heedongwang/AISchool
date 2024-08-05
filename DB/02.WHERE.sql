@@ -1,0 +1,175 @@
+--CHAPTER 02. WHERE
+
+--WHERE사용방법
+/*SELECT 조회 컬럼명1,.....
+ FROM 테이블명
+ WHERE 선별 조건*/
+ --직원테이블에서 직원ID가 105인 FIRST,LAST NAME
+ SELECT FIRST_NAME, LAST_NAME,EMPLOYEE_ID
+ FROM EMPLOYEES
+ WHERE EMPLOYEE_ID=105;
+ 
+ 
+ -- 부서테이블에서 매니저 아이디가 100인 부서이름과 부서 아이디 출력
+ SELECT MANAGER_ID,DEPARTMENT_ID
+ FROM DEPARTMENTS
+ WHERE DEPARTMENT_ID=100;
+ 
+ 
+ --직원테이블에서 급여 9000인 직원아이디, 직원이름, 급여
+ SELECT EMPLOYEE_ID, FIRST_NAME, SALARY
+ FROM EMPLOYEES
+ WHERE SALARY=9000;
+
+
+/*연산자
+1)산술연산자<+,-,*,/> SELECT A*2 FROM~
+2)비교연산자 (>,>=,<,<=)
+*/
+
+--직원테이블에서 급여가 5000이하인 직원 이름과 급여정보 출력
+SELECT FIRST_NAME, SALARY
+FROM EMPLOYEES
+WHERE SALARY<=5000;
+
+--직원테이블에서 연봉이 50000이하인 직원들의 이름과 연봉 출력
+SELECT FIRST_NAME, SALARY*12 AS "연봉"
+FROM EMPLOYEES
+WHERE (SALARY*12)<=50000;
+
+--등가비교연산자(!=,<>,^=, NOT
+
+-- 직원테이블에서 직업아이디가 IT_PR0G가 아닌 직원의 이름과 직업아이디 출력
+SELECT FIRST_NAME, JOB_ID
+FROM EMPLOYEES
+WHERE JOB_ID !='IT_PROG';
+
+/*논리 연산자 AND OR
+우선순위에 따라 결과값 다름
+*/
+
+--직원테이블에서 부서아이디가 90이고 급여가 5000인 직원의 직원아이디와 직원이름 
+SELECT EMPLOYEE_ID, FIRST_NAME
+FROM EMPLOYEES
+WHERE DEPARTMENT_ID=90 
+AND SALARY>=5000;
+
+
+--직원테이블에서 부서아이디가 100이거나 입사일이 06년 02 02 이후 입사한 직원 이름,입사일 정보
+
+SELECT FIRST_NAME, HIRE_DATE
+FROM EMPLOYEES 
+WHERE HIRE_DATE > '060202'
+OR DEPARTMENT_ID=100;
+
+--직원테이브에서 부서ID가 100이거나 90인 직원중 아이디가 101인 직원의 아이디 이름 연봉 출력
+--ANNSAL이라는 별칭으로 연봉력
+
+SELECT FIRST_NAME, SALARY*12 AS "연봉"
+FROM EMPLOYEES
+WHERE EMPLOYEE_ID=101
+AND (DEPARTMENT_ID=100 
+OR DEPARTMENT_ID=90);
+/*WHERE DEPARTMENT_ID=100 
+  OR DEPARTMENT_ID=90
+  AND EMPLOYEE_ID=101*/
+/*
+NULL연산자
+IS NULL: 널 값 조회  =>A=NULL=>FALSE
+IS NOT NULL: 널이 아닌값 조회*/
+
+--직원테이블에서 보너스가 있는 직원의 이름과 보너스 정보 출력(NULL값 제외)
+SELECT FIRST_NAME, COMMISSION_PCT
+FROM EMPLOYEES
+WHERE COMMISSION_PCT IS NOT NULL;
+
+SELECT FIRST_NAME,DEPARTMENT_ID
+FROM EMPLOYEES
+WHERE DEPARTMENT_ID IS NULL;
+
+/*SQL연산자
+IN:특정 컬럼에 포함된 데이터 여러개 조회
+NOT IN:조건에 해당하지 않는 데이터 출려
+
+/ BETWEEN A AND B:범위 내 데이터 조회 A:최소값, B:최대값  이상이하
+/ LIKE*/
+--직원테이블에서 부서아이디가 30/50/90 의 모든 정보 출력
+SELECT*
+FROM EMPLOYEES
+WHERE DEPARTMENT_ID = 50 
+OR DEPARTMENT_ID = 30 
+OR DEPARTMENT_ID = 90;
+
+SELECT*
+FROM EMPLOYEES
+WHERE DEPARTMENT_ID IN (30,50,90);
+
+--직원테이블에서 매니저아이디 100,102,103 직원이름,매니저아이디출력
+SELECT FIRST_NAME, MANAGER_ID
+FROM EMPLOYEES
+WHERE MANAGER_ID IN (100,102,103);
+--IN에 NULL대입시 NULL제외 시키고 출력
+
+--100,102,121이 아닌 직원 이름 매니저아이디 출력
+SELECT FIRST_NAME, MANAGER_ID
+FROM EMPLOYEES
+WHERE MANAGER_ID NOT IN (100,120,121);
+
+--직원테이블 직업아이디가 AD_VP ST_MAN인 직원의 이름과 ㅈ직ㅇ업아이디 출려
+SELECT FIRST_NAME, JOB_ID
+FROM EMPLOYEES
+WHERE JOB_ID IN('AD_VP','ST_MAN');
+
+--직원테이블 매니저 아이디가 145,146,147,148,149가 아닌 직원의 이름과 매니저아이디 출려
+SELECT FIRST_NAME, MANAGER_ID
+FROM EMPLOYEES
+WHERE MANAGER_ID NOT IN  (145,146,147,148,149);
+
+--직원테이블 급여 10000이상 20000이하 직원이름 급여
+SELECT FIRST_NAME, SALARY
+FROM EMPLOYEES
+WHERE SALARY BETWEEN 10000 AND 20000;
+
+--직원테이블 05년 입사 직원 이름/입사일
+SELECT FIRST_NAME, HIRE_DATE
+FROM EMPLOYEES
+WHERE HIRE_DATE BETWEEN '050101' AND '051231';
+
+
+/*
+LIKE: 일부 문자열이 포함된 데이터를 조회할때 사용
+%:모든 문제 데이터
+_:한개의 문자*/
+
+--직원테이블에서 핸드폰 번호가 650으로 시작하는 직원의 이름과 핸드폰 번호 출력
+
+SELECT FIRST_NAME,PHONE_NUMBER
+FROM EMPLOYEES
+WHERE PHONE_NUMBER LIKE '650%';
+
+--직원테이블에서 이름이 S로 시작하고n으로 끝나는 직원 이름찾기
+SELECT FIRST_NAME
+FROM EMPLOYEES
+WHERE FIRST_NAME LIKE 'S%n';
+
+--직원테이블에서 이름이 it으로 끝나고 총 4글자인 직원이름
+SELECT FIRST_NAME
+FROM EMPLOYEES
+WHERE FIRST_NAME LIKE '__it';
+
+--직원테이블에서 이름 두번째글자가 e인 직원이름
+SELECT FIRST_NAME
+FROM EMPLOYEES
+WHERE FIRST_NAME LIKE '_e%';
+
+--직월테이블에서 01월에 입사한 직원의 이름과 입사날짜
+SELECT FIRST_NAME,HIRE_DATE
+FROM EMPLOYEES
+WHERE HIRE_DATE LIKE '___01%'--언더바 3개
+
+
+
+
+
+
+

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,td{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    
+    
+   
+    <script>
+        //과목 수, 이름, 점수, 총점, 평균 초기화
+        let subNum=0;
+        let subName=[];
+        let subScore=[];
+        let totalScore=0;
+        let averageScore=0;
+        //과목 수 입력
+        subNum= Number(prompt("과목 수 입력"));
+        //과목 수 만큼 과목이름 입력
+        for(let i=0; i<subNum;i++){
+            subName.push(prompt("과목을 입력하세요"));
+            //subName[i]=prompt("과목을 입력하세요");
+        }
+
+        //과목의 점수 입력
+        for(let i=0;i<subNum;i++){
+            //subScore[i]=prompt(`${subName[i]}의 점수를 입력`);
+            //subScore.push(Number(prompt(`${subName[i]}의 점수를 입력`))) ;
+            //totalScore+= subScore[i];
+            let score=Number(prompt(`${subName[i]}의 점수를 입력`)) ;
+            subScore.push(score);
+            totalScore+=score;
+        }
+ 
+        //과목 점수 총합, 평균 도출
+        averageScore=parseInt(totalScore/subNum);
+        //html 문서로 출력
+
+        
+    let table=`<table>
+                <tr>`;
+
+    for(let i=0; i<subNum;i++){
+        table+=`<td> ${subName[i]}</td>`
+    }
+
+    table+=`<td>총합</td>
+             <td>평균</td></tr>
+             <tr>`;
+
+
+
+
+    for(let i=0; i<subNum;i++){
+        table+=`<td> ${subScore[i]}</td>`
+    }
+    
+    table+=`<td>${totalScore}</td>
+             <td>${averageScore}</td></tr>
+             </table>
+             `;
+
+
+        document.write(table);
+
+
+
+
+
+
+
+    //     let table=`  <table>
+    //     <tr>
+    //         <td>자바</td>
+    //         <td>안드로이드</td>
+    //         <td>총합</td>
+    //         <td>평균</td>
+    //     </tr>
+    //     <tr>
+    //         <td>87</td>
+    //         <td>81</td>
+    //         <td>168</td>
+    //         <td>84</td>
+    //     </tr>
+    // </table> `;
+    </script>
+</body>
+</html>

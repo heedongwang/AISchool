@@ -1,0 +1,132 @@
+--CHAPTER O6.DDL(Data Difinition Language)
+/*DDL:데이터 정의어, 저장소 객체 생성, 수정언어
+CREATE:객체 생성 명령어
+ALTER: 객체 변경 명령어
+RENAME: 객체 이름 변경
+TRUNCATE:데이터 삭제
+DROP: 객체 삭제
+
+VARCHAR2(N):가변형 문자형, 크기n만큼
+NUMBER(P,S): 숫자형 ,P자리만큼 입력, S는 소수점, 정수,실수 모두 가능 
+    소괄호 생략시 최대값 38크기
+DATE: 현재 날짜 입력*/
+
+--수강생정보에서 TEST_수강생정보테이블 생성  SHIFT+F4:테이블 정보확인
+CREATE TABLE TEST_수강생정보(학생ID VARCHAR2(9), 학생이름 VARCHAR2(50),소속반 VARCHAR2(5));
+
+SELECT * FROM "TEST_수강생정보";
+
+
+--성적표에서 TEST_성적표테이블 생성
+CREATE TABLE TEST_성적표(학생ID VARCHAR2(9), 과목 VARCHAR2(30), 성적 NUMBER);
+
+SELECT * FROM "TEST_성적표";
+
+--실습1
+CREATE TABLE A_LOGIN(USER_ID VARCHAR2(20),USER_PASSWORDS VARCHAR2(20), USER_EMAIL VARCHAR2(20), USER_NAME VARCHAR2(20));
+SELECT * FROM A_LOGIN;
+
+--제약조건: 입력가능한 데이터를 조건으로 제약, 정확성 유지, 저장방식에 따라 데이터 수정,삭제 여부 받음
+/*PRIMARY KEY(PK):키본키, NOT NULL+ UNIOUE(중복불가)
+UNIQUE KEY(UK):유일키  NULL 가능, 중복 불가
+NOT NULL: NULL값 불가 , 꼭 데이터 필요한 곳에 사용
+CHECK: 지정한 데이터만 입력
+FORIGN KEY(FK):외래키, 두 테이블 연결 키
+
+제약조건 거는 방법
+ALTER TABLE 테이블명 ADD CONSTRAINT 제약조건이름 조건(컬럼이름);
+*/
+
+--PK 제약 조건 지정
+SELECT * FROM A_LOGIN;
+ALTER TABLE A_LOGIN ADD CONSTRAINT A_ID_PK PRIMARY KEY(USER_ID);
+
+--UK제약 조건 지정
+ALTER TABLE A_LOGIN ADD CONSTRAINT A_EMAIL_UK UNIQUE(USER_EMAIL);
+
+--CHECK제약 조건 지정
+ALTER TABLE A_LOGIN ADD CONSTRAINT PW_CHECK CHECK(LENGTH(USER_PASSWORDS)>3);
+
+--FK제약 조건 지정
+--ALTER TABLE 테이블명 ADD CONSTRAINT 제약조건이름 제약조건(컬럼) REFERENCES 참조할테이블명(참조 컬럼);
+ALTER TABLE TEST_성적표 ADD CONSTRAINT 학생ID_F FOREIGN KEY(학생ID)
+REFERENCES 수강생정보(학생ID);
+
+--제약조건 변경 방법
+--ALTER TABLE 테이벌명 MODIFY 컬럼명 바꿀제약조건;
+ALTER TABLE A_LOGIN MODIFY USER_NAME NOT NULL;
+
+--제약조건 삭제
+--ALTER TABLE 테이벌명 DROP CONSTRAINT 제약조건이름;
+ALTER TABLE A_LOGIN DROP CONSTRAINT PW_CHECK;
+
+/*데이터 무결성:결함이 없는 상태, 정확히 유효하게 유지된 데이터
+
+무결성 제약 조건
+1. 개체 무결성: 기본키 제약, 중복행이 존재하지 않도록 규제
+2. 참조 무결성: 행 입력,수정,삭제 시 데이터들이 정확하게 유지, 참조관계의 테이블의 데이터가 일관된 값 가짐*/
+
+
+CREATE TABLE TB_TEST1(
+PK테스트 NUMBER PRIMARY KEY,
+UK테스트 NUMBER UNIQUE,
+NL테스트 NUMBER NOT NULL,
+CK테스트 NUMBER CHECK(LENGTH(CK테스트)>5));
+
+CREATE TABLE TB_TEST2(
+PK테스트 NUMBER ,
+UK테스트 NUMBER ,
+NL테스트 NUMBER NOT NULL,
+CK테스트 NUMBER,
+FK테스트 NUMBER,
+CONSTRAINT PK테스트_PK PRIMARY KEY (PK테스트),
+CONSTRAINT UK테스트_UK UNIQUE(UK테스트),
+CONSTRAINT CK테스트_CK CHECK (CK테스트>0),
+CONSTRAINT FK테스트_FK FOREIGN KEY(FK테스트) REFERENCES TB_TEST1(PK테스트)
+); 
+
+
+--컬럼추가하기 ALTER TABLE 테이블명 ADD 컬럼명 자료형(크기)
+ALTER TABLE A_LOGIN ADD PHONE_NUMBER VARCHAR2(10);
+
+--컬럼 이름 변경 ALTER TABLE 테이블명 RENAME COLUMN 기존컬럼이름 TO 바꿀 컬럼이름;
+ALTER TABLE A_LOGIN RENAME COLUMN PHONE_NUMBER TO TEL;
+
+--컬럼 자료형 변경 ALTER TABLE 테이블명 MODIFIY 컬럼명 바꿀제야조건(길이)
+ALTER TABLE A_LOGIN MODIFY TEL VARCHAR(20);
+
+--특정 컬럼 삭제하기 ALTER TABLE 테이블명 DROP COLUMN 컬럼명;
+ALTER TABLE A_LOGIN DROP COLUMN TEL;
+
+--테이블 이름 변경 REANEM 기존테이블명 TO 바꿀테이블명
+RENAME A_LOGIN TO USER_LOGIN;
+SELECT * FROM A_LOGIN;
+SELECT * FROM USER_LOGIN;
+
+--테이블 삭제 
+DROP TABLE TEST_수강생정보;
+SELECT * FROM TEST_수강생정보;
+
+--테이블 복사
+CREATE TABLE DROP_성적표 AS SELECT * FROM 성적표;
+SELECT* FROM DROP_성적표;
+
+DELETE  DROP_성적표; --복원가능
+ROLLBACK; --되돌리는 명령어
+SELECT* FROM DROP_성적표;
+
+--TRUNCATE: 데이터 영구삭제
+TRUNCATE TABLE DROP_성적표; --되돌릴 수 없음
+ROLLBACK;
+SELECT* FROM DROP_성적표;
+
+--실습2
+CREATE TABLE USE_JOIN( 
+ID VARCHAR2(20) PRIMARY KEY,
+PW VARCHAR2(20) NOT NULL,
+NAME VARCHAR2(10) NOT NULL,
+JOIN_DATE DATE,
+AGE NUMBER(3),
+PHONE VARCHAR2(20),
+EMAIL VARCHAR2(50) UNIQUE
+);

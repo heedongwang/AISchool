@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn1" onclick="">버튼1</button>
+    <button id="btn2" onclick="">버튼2</button>
+    <button id="btn3" onclick="">버튼3</button>
+
+    <script>
+
+        const  
+        
+        /*3.이벤트리스너 방식=>이벤트가 발생할때 캐그에게 알려주는 역할
+            HTML과 JS를 분리 +이벤트 여러개를 연결 가능!, 권장방식
+            태그를 가져와서 이벤트리스너를 붙여줌
+            리스너안에 필요한 매개변수 2가지=> 
+                이벤트 종류, 
+                실행할 이벤트(함수명을 작성, 함수를 직접 작성->익명함수)
+        */
+        let btn3=document.getElementById("btn3");
+        btn3.addEventListener("click",clickEvent);
+        btn3.addEventListener("click",()=>{
+            alert("함수 두번째 실행");
+        })
+
+
+        /*이벤트 리스너 방식으로 2번째 버튼에게 이벤트 연결
+        1.태그 조사 2.태그와 이벤트리스너 연결 3. 이벤트 종류와 함수 연결*/
+    </script>
+    
+</body>
+</html>

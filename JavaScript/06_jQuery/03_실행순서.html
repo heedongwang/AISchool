@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery-3.7.1.min.js"></script>
+    
+</head>
+<body>
+    <script> 
+        /*JS는 코드 순서 중요, 한줄씩 실행하는 인터프리터 특성
+        1. 무조건 스크립트 코드를 HTML 맨 밑에 작성
+        2. ready기능을 활용하면, 문서가 다 만들어진 후 실행
+        3. */
+        $(document).ready(()=>{
+            $("h1").css("color","orange");
+        });
+
+        $(()=>{
+            $("h1").css("color","orange");
+        })
+        
+    </script>
+
+    <h1>집에가고싶어요</h1>
+</body>
+</html>

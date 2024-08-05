@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 사용자가 가입할수있도록 가입창 만들기=>프론트 역학
+    사용자에게 입력받을 떄 사용하는 태그=> input태그 
+    from 입력받은 데이터를 하나로 묶어 서버에 정보 전달
+    from 필수속성: 1)action: 데이터  보내줄 서버의 주소
+     #:미정         2)method:데이터 전송 방법 (post, get)->기본:get
+                    -get: url에 데이터 담아 전송(url에 정보 노출)
+                    -post:url에 데이터 숨겨 전송
+                name: 입력받은 데디터가 같으늠 드우니능 명시,
+                vlaue:실제 선택하 ㄴ데이터의 삾-->
+
+    <form action="#" , method="get">
+        아이디: <input type="text" , placeholder="아이디는 영어로 작성해주세요"><br>
+        비밀번호: <input type="password"><br><!--비밀번호 노출 숨김: password-->
+
+
+        <!-- 사용자에게 클릭을 통해 입력받는 방법->반드시 이름, 발류값 입력
+            1) 체크박스: 중복체크 가능
+            2) 라디오: 중복체크 불가=> 묶기->반드시 네임 입력-->
+        취미: 축구<input type="checkbox" , name='hobby' ,value="축구">
+            야구<input type="checkbox" , name='hobby' ,value="야구"><br>
+        성별: 남<input type="radio" , name='gender' ,value="남">
+            여<input type="radio" , name='gender' , value="여"><br>
+
+
+        <!--자주 사용하지는 않지만 존재하는 인풋 태그
+        1)파일 업로드
+        2) 바 스크롤
+        3) 색 입력
+        4) 날짜 입력
+        5) 시간까지 입력
+         -->
+        <input type="file"><br>
+        <input type="range"><br>
+        <input type="color"><br>
+        <input type="date"><br>
+        <input type="datetime-local"><br>
+
+
+
+        <!-- 리스트 형태로 데이터 제공=> select -->
+        <select name="mail">
+            <option value="naver">naver.com</option>
+            <option value="gmail">gmail.com</option>
+            <option value="daum">daum.net</option>
+        </select><br>
+
+        <!--많은 양의 글자 입력받는 공간  -->
+        <textarea></textarea><br>
+        <!-- 입력 폼에서 반드시 제출 생성=> submit -->
+        <input type="submit"><br>
+        <!-- 초기화-reset -->
+    <input type="reset">    
+    </form>
+</body>
+
+</html>

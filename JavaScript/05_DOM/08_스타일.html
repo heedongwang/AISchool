@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="text">스타일을 변경하자!</h1>
+    <button onclick="changeCss()">스타일 변경</button>
+
+    <script>
+        //버튼 클릭시, h1태그의 글자색을 빨간색으로 변경
+
+        const changeCss=()=>{
+            let h1 =document.getElementById("text");
+            h1.style.color="red";
+            //태그안에 직접 스타일이 작성되기 떄문에 권장하지 않음
+            // 단순한 스타일 제어할때   사용    
+            //현업에서 class를 변경하는 방식으로 코드 작성
+        }
+
+    </script>
+
+</body>
+</html>

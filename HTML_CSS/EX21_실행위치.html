@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css"><!--연결할 css의 경로 작성-->
+    <style>
+        /*CSS코드 실행 위치(내부, 외부, 인라인)
+        1)내부: html안에 style 태그 생성해 css작성=> 간단한 스타일,로컬 테스트에 사용
+            =>단: 코드 노출, 재사용성 떨어짐, 가독성 안좋음
+              장: 태그와 css 한눈에 확인 가능 
+        2)인라인: 태그안에 style 속성 직접 명시
+            =>단: 코드 노출, 재사용성 떨어짐, 코드 양 증가
+        3)외부: html과 css파일을 별도 생성해 개발(파일 분리)
+            =>장: 코드 노출 안됨, 재사용성 좋음, 유지보수 용이
+            => 실제 개발시 외부방식 개발 
+        */
+
+        h1{color:blueviolet;}
+    </style>
+</head>
+<body>
+    <h1>마지막시간(내부방식)</h1>
+    <h2 style="color:blue;">여러분(인라인)</h2>
+    <h3>네(외부방식)</h3>
+    
+</body>
+</html>

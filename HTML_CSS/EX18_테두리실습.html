@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /*테두리를 동그랗게 만드는 법*/
+        #div1{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            border-radius: 50%; /*테두리를 깎아주는 역할  가로,세로를 크기만큼 잘라냄
+                                    원=>가로/세로의 절반(%) */
+        }
+
+        #div2{
+            width: 200px;
+            height: 200px;
+            background-color: green;
+            border-top-left-radius: 50%;
+            border-bottom-right-radius: 50% ;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="div1"></div>
+    <div id="div2"></div>
+    
+</body>
+</html>
